@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <math.h> // Importa el metodo para calcular la raiz
+
+/*
+Programa 9: Escriba un programa de C que calcule las raices de un polinomio de segundo grado
+
+ax^2 + bx + c = 0 
+*/
+
+int main(){
+	float a,b,c,x1,x2,determinante;
+	
+	printf("Ingrese el coeficiente de a: ");
+	scanf("%f",&a);
+	
+	if(a == 0){
+		printf("El coeficiente de a no puede ser 0");
+		return 0;
+	}
+	
+	printf("Ingrese el coeficiente de b: ");
+	scanf("%f",&b);
+	
+	printf("Ingrese el coeficiente de c: ");
+	scanf("%f",&c);
+	
+	determinante = (b*b) - (4 * a * c);
+	
+	if(determinante < 0){
+		printf("La ecuación no tiene soluciones reales");
+	} else if (determinante == 0){
+		x1 = -b / (2*a);
+		printf("La solucion a la ecuacion es x = %f",x1);
+	} else {
+		x1 = (-b + sqrt((b*b) - (4*a*c))) / (2*a);
+		x2 = (-b - sqrt((b*b) - 4*a*c)) / (2*a);
+		printf("Las soluciones a la ecuacion son x1 = %f y x2 = %f",x1,x2);
+	}
+	return 0;
+}
