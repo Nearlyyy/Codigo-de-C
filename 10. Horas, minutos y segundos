@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+/*
+Programa 10: El usuario deberá ingresar un entero que representará una cantidad de segundos
+El programa debe devolver la cantidad de horas, minutos y segundos que hay en esos segundos ingresados.
+Ejemplo:
+
+330 segundos = 0 horas, 5 minutos y 30 segundos
+
+*/
+
+int main(){
+	int seconds, horas, minutos, segundos;
+	
+	printf("Ingrese una cantidad de segundos: ");
+	scanf("%i", &seconds);
+	
+	if(seconds < 0){
+		printf("No se aceptan valores negativos");
+		return 0;
+	}
+	
+	horas = seconds / 3600;
+	minutos = (seconds % 60) / 60; 
+	// Para calcular correctamente los minutos, es necesario quitar las horas
+	// presentes en los segundos
+	segundos = seconds % 60;
+	
+	printf("En %i segundos hay %i horas, %i minutos y %i segundos",seconds, horas, minutos, segundos);
+	return 0;
+}
